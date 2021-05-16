@@ -19,7 +19,7 @@ class Contestant {
   }
 
   update(){
-    var contestantIndex = "contestants/contestant" + this.index;
+    var contestantIndex = "allContestant/player" + this.index;
     database.ref(contestantIndex).set({
       name:this.name,
       answer:this.answer
@@ -27,7 +27,7 @@ class Contestant {
   }
 
   static getPlayerInfo(){
-    var contestantInfoRef = database.ref('contestants');
+    var contestantInfoRef = database.ref('allContestant');
     contestantInfoRef.on("value",(data)=>{
       allContestants = data.val();
     })
